@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class FuncionarioTest {
@@ -14,7 +15,7 @@ public class FuncionarioTest {
     public void testaConstrutorFuncionarioCorreto() {
         String nome = "Peter Parker";
         Integer horasTrabalhadas = 36;
-        Double valorHora = 22.0;
+        Double valorHora = 5.0;
 
         this.funcionario = new Funcionario(nome, horasTrabalhadas, valorHora);
 
@@ -24,12 +25,55 @@ public class FuncionarioTest {
     }
 
     @Test
-    public void testaConstrutorFuncionarioIncorreto() {
+    public void testaConstrutorFuncionarioHorasTrabalhadasIncorreto() {
         String nome = "Peter Parker";
         Integer horasTrabalhadas = 41;
         Double valorHora = 22.0;
 
         assertThrows(Exception.class,
                 () -> new Funcionario(nome, horasTrabalhadas, valorHora));
+    }
+
+    @Test
+    public void testaConstrutorFuncionarioValorHoraIncorreto() {
+        String nome = "Peter Parker";
+        Integer horasTrabalhadas = 41;
+        Double valorHora = 11.0;
+
+        assertThrows(Exception.class,
+                () -> new Funcionario(nome, horasTrabalhadas, valorHora));
+    }
+
+    @Test
+    public void testaSetNome() {
+        String nome = "Thor Odinson";
+
+        Funcionario funcionarioSetName = new Funcionario();
+
+        funcionarioSetName.setNome(nome);
+
+        assertEquals(nome, funcionarioSetName.getNome());
+    }
+
+    @Test
+    public void testaSetHorasTrabalhadas() {
+        Integer horasTrabalhadas = 33;
+
+        Funcionario funcionarioSetHorasTrabalhadas = new Funcionario();
+
+        funcionarioSetHorasTrabalhadas.setHorasTrabalhadas(horasTrabalhadas);
+
+        assertEquals(horasTrabalhadas, funcionarioSetHorasTrabalhadas.getHorasTrabalhadas());
+    }
+
+    @Test
+    public void testaSetValorHora() {
+        Double valorHora = 7.0;
+
+        Funcionario funcionarioSetValorHora = new Funcionario();
+
+        funcionarioSetValorHora.setValorHora(valorHora);
+
+        assertEquals(valorHora, funcionarioSetValorHora.getValorHora());
     }
 }
