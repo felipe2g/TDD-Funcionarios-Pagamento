@@ -1,5 +1,6 @@
 package Funcionario;
 
+import org.example.entities.Funcionario;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -17,7 +18,7 @@ public class FuncionarioTest {
 
         this.funcionario = new Funcionario(nome, horasTrabalhadas, valorHora);
 
-        Assertions.assertEquals(funcionario.getNome(), name);
+        Assertions.assertEquals(funcionario.getNome(), nome);
         Assertions.assertEquals(funcionario.getHorasTrabalhadas(), horasTrabalhadas);
         Assertions.assertEquals(funcionario.getValorHora(), valorHora);
     }
