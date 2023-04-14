@@ -25,10 +25,20 @@ public class FuncionarioTest {
     }
 
     @Test
+    public void testaConstrutorIncorreto() {
+        String nome = "Peter Parker";
+        Integer horasTrabalhadas = 41;
+        Double valorHora = 11.0;
+
+        assertThrows(Exception.class,
+                () -> new Funcionario(nome, horasTrabalhadas, valorHora));
+    }
+
+    @Test
     public void testaConstrutorFuncionarioHorasTrabalhadasIncorreto() {
         String nome = "Peter Parker";
         Integer horasTrabalhadas = 41;
-        Double valorHora = 22.0;
+        Double valorHora = 8.0;
 
         assertThrows(Exception.class,
                 () -> new Funcionario(nome, horasTrabalhadas, valorHora));
@@ -37,8 +47,18 @@ public class FuncionarioTest {
     @Test
     public void testaConstrutorFuncionarioValorHoraIncorreto() {
         String nome = "Peter Parker";
-        Integer horasTrabalhadas = 41;
+        Integer horasTrabalhadas = 30;
         Double valorHora = 11.0;
+
+        assertThrows(Exception.class,
+                () -> new Funcionario(nome, horasTrabalhadas, valorHora));
+    }
+
+    @Test
+    public void testaConstrutorFuncionarioValorHoraNegativo() {
+        String nome = "Peter Parker";
+        Integer horasTrabalhadas = 41;
+        Double valorHora = -11.0;
 
         assertThrows(Exception.class,
                 () -> new Funcionario(nome, horasTrabalhadas, valorHora));
@@ -56,7 +76,7 @@ public class FuncionarioTest {
     }
 
     @Test
-    public void testaSetHorasTrabalhadas() {
+    public void testaSetHorasTrabalhadasCorreto() {
         Integer horasTrabalhadas = 33;
 
         Funcionario funcionarioSetHorasTrabalhadas = new Funcionario();
@@ -67,7 +87,17 @@ public class FuncionarioTest {
     }
 
     @Test
-    public void testaSetValorHora() {
+    public void testaSetHorasTrabalhadasIncorreto() {
+        Integer horasTrabalhadas = 55;
+
+        Funcionario funcionarioSetHorasTrabalhadas = new Funcionario();
+
+        assertThrows(Exception.class,
+                () -> funcionarioSetHorasTrabalhadas.setHorasTrabalhadas(horasTrabalhadas));
+    }
+
+    @Test
+    public void testaSetValorHoraCorreto() {
         Double valorHora = 7.0;
 
         Funcionario funcionarioSetValorHora = new Funcionario();
@@ -75,5 +105,15 @@ public class FuncionarioTest {
         funcionarioSetValorHora.setValorHora(valorHora);
 
         assertEquals(valorHora, funcionarioSetValorHora.getValorHora());
+    }
+
+    @Test
+    public void testaSetValorHoraIncorreto() {
+        Double valorHora = 11.0;
+
+        Funcionario funcionarioSetValorHora = new Funcionario();
+
+        assertThrows(Exception.class,
+                () -> funcionarioSetValorHora.setValorHora(valorHora));
     }
 }
