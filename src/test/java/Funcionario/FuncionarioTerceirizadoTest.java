@@ -29,7 +29,7 @@ public class FuncionarioTerceirizadoTest {
     }
 
     @Test
-    public void testaConstrutorCorreto() {
+    public void testaConstrutorIncorreto() {
         String nome = "Peter Parker";
         Integer horasTrabalhadas = 36;
         Double valorHora = 5.0;
@@ -56,7 +56,7 @@ public class FuncionarioTerceirizadoTest {
     }
 
     @Test
-    public void testaModificadorDespesaAdicionalValido() {
+    public void testaModificadorDespesaAdicionalInvalido() {
         Double despesaAdicional = 1001.00;
 
         FuncionarioTerceirizado funcionarioTerceirizado = new FuncionarioTerceirizado();
